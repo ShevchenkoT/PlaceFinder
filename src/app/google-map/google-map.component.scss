@@ -1,0 +1,56 @@
+agm-map {
+  height: 100%;
+  width: 100%;
+}
+
+.wavy-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000000;
+  color: hsl(345deg 100% 47%);
+  font-weight: bold;
+
+  span {
+    position: relative;
+    font-size: 3rem;
+    display: inline-block;
+    animation: wavy 1s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+    text-shadow:
+      1px 2px 1px #c7c7c7,
+      1px 3px 1px #ffffff,
+  }
+
+  @keyframes wavy {
+    0% {
+      transform: translateY(0px);
+    }
+
+    20% {
+      transform: translateY(-20px);
+    }
+
+    40%,
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
+@media(max-width:992px) {
+  .wavy-loading {
+    span {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media(max-width:767px) {
+  .wavy-loading {
+    span {
+      font-size: 1.5rem;
+    }
+  }
+}

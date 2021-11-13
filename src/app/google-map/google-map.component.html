@@ -1,0 +1,27 @@
+<agm-map #map id="map" *ngIf="place" [latitude]="lat" [longitude]="lng" [zoom]="mapZoom">
+  <agm-marker #marker (markerClick)="markerClick(infoWindow)" [latitude]="lat" [longitude]="lng" [zIndex]="5"
+    [label]="{color: 'white', text: 'You', fontSize: '11px', fontWeight: 'bold'}">
+    <agm-info-window #infoWindow [disableAutoPan]="true">
+      Your geolocation
+    </agm-info-window>
+  </agm-marker>
+  <agm-marker #marker (markerClick)="markerClick(infoWindow)" *ngFor="let location of place" [latitude]="location.lat"
+    [longitude]="location.lng">
+    <agm-info-window #infoWindow [disableAutoPan]="true">
+      {{location.name}}
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
+
+<div class="wavy-loading" *ngIf="wavyLoading">
+  <span style="--i:1;">L</span>
+  <span style="--i:2;">O</span>
+  <span style="--i:3;">A</span>
+  <span style="--i:4;">D</span>
+  <span style="--i:5;">I</span>
+  <span style="--i:6;">N</span>
+  <span style="--i:7;">G</span>
+  <span style="--i:8;">.</span>
+  <span style="--i:9;">.</span>
+  <span style="--i:10;">.</span>
+</div>
